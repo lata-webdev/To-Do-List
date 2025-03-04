@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #151947;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /*.container {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #151947;
+        padding: 10px;
+    } */
+
+    .Todo_app {
+        width: 100%;
+        max-width: 740px;
+        background-color: #b4bfe9;
+        margin: 100px auto 20px;
+        padding: 40px 30px 70px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .Todo_app:hover {
+        box-shadow: 10px 10px 5px 2px rgba(2, 2, 2, 0.5);
+    }
+
+    .Todo_app h2 {
+        color: #333333;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .Todo_app img {
+        width: 40px;
+        margin-left: 10px;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(229, 239, 235);
+        border-radius: 30px;
+        padding-left: 20px;
+        margin-bottom: 25px;
+    }
+
+    input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 14px;
+        font-weight: 16px;
+    }
+
+    #button1 {
+        border: none;
+        outline: none;
+        padding: 16px 50px;
+        color: #fcfffe;
+        background-color: #0e6178;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+    #button1:hover {
+        background-color: rgb(0, 209, 10);
+        color: rgb(4, 4, 4);
+        transform: translateY(-1px) scale(1.1);
+    }
+
+    ul li {
+        list-style: none;
+        font-size: 17px;
+        padding: 12px 8px 12px 50px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    ul li span {
+        flex: 1;
+        /* Allows the text to take up remaining space */
+        margin-right: 10px;
+        /* Adds spacing between text and buttons */
+    }
+
+    ul li::before {
+        content: '';
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background-image: url(round.png);
+        background-size: cover;
+        background-position: center;
+        top: 12px;
+        left: 8px;
+    }
+
+    ul li.checked span {
+        color: red;
+        text-decoration: line-through;
+    }
+
+    ul li.checked::before {
+        background-image: url(accept.png);
+    }
+
+    #button2 {
+        height: 40px;
+        width: 80px;
+        background-color: rgb(7, 129, 215);
+        color: white;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 24px;
+        float: right;
+        border-radius: 10px;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+    #button2:hover {
+        background-color: rgb(241, 25, 5);
+        color: rgb(250, 244, 244);
+    }
+
+    .edit {
+        background-color: rgb(87, 160, 15);
+        color: rgb(252, 252, 222);
+        cursor: pointer;
+        height: 40px;
+        width: 70px;
+        border-radius: 50%;
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 70px;
+    }
+
+    .edit:hover {
+        background-color: cadetblue;
+        color: rgb(20, 20, 20);
+        transform: translateY(-1px) scale(1.1);
+        transition-duration: 0.5s;
+    }
+
+    .delete {
+        background-color: red;
+        cursor: pointer;
+        color: rgb(229, 229, 201);
+        cursor: pointer;
+        height: 40px;
+        width: 70px;
+        border-radius: 50%;
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 30px;
+    }
+
+    .delete:hover {
+        background-color: cadetblue;
+        color: rgb(20, 20, 20);
+        transform: translateY(-1px) scale(1.1);
+        transition-duration: 0.5s;
+    }
+
+    .save-btn {
+        background-color: rgb(11, 213, 213);
+        cursor: pointer;
+        color: rgb(10, 10, 10);
+        cursor: pointer;
+        height: 40px;
+        width: 70px;
+        border-radius: 50%;
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 30px;
+    }
+
+    .save-btn:hover {
+        background-color: cadetblue;
+        color: rgb(20, 20, 20);
+        transform: translateY(-1px) scale(1.1);
+        transition-duration: 0.5s;
+    }
+
+    #Themes {
+        height: 40px;
+        width: 220px;
+        background-color: #3a8cea;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: 15%;
+        margin-top: 50px;
+        border-radius: 10px;
+    }
+
+    #Themes:hover {
+        background-color: rgb(76, 71, 71);
+        color: rgb(248, 242, 242);
+    }
+
+    /* Light Mode Styling */
+    .light-mode {
+        background-color: #88b6b6;
+        color: #252323;
+    }
+
+    /*#list-container {
+        display: flex;
+        border: 3px solid red;
+        justify-content: space-between;
+        position: relative;
+        flex-direction: column;
+    }*/
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container1">
+            <button id="Themes">Switch Theme 🌙</button>
+        </div>
+        <div class="Todo_app">
+            <!-- Date month week year display  -->
+            <div id="date-container" style="display: flex;">
+                <p id="date-display"></p>
+                <!-- Time Display -->
+                <p id="time-display" style="padding-left: 400px;"></p>
+            </div>
+            <br><br>
+            <h2>To-Do List<img src="to-do-list .png"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Type here about your next task...">
+                <button onclick="AddTask();" id="button1">Add</button>
+            </div>
+            <ul id="list-container"></ul>
+            <button onclick="clearAll();" id="button2">Clear All</button>
+        </div>
+    </div>
+    <script>
+        // Themes
+        const toggleButton = document.getElementById("Themes");
+        const body = document.body;
+
+        // Check if user has a saved theme preference
+        if (localStorage.getItem("theme") === "light") {
+            body.classList.add("light-mode");
+        }
+
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("light-mode");
+
+            // Save the theme preference in localStorage
+            if (body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.setItem("theme", "dark");
+            }
+        });
+
+        // Function to get the current date
+        function getCurrentDate() {
+            const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const today = new Date();
+            return `${days[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+        }
+
+        // Display the current date
+        document.getElementById('date-display').innerText = getCurrentDate();
+
+        // Function to get the current time
+        function getCurrentTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the time every second
+        function updateTime() {
+            document.getElementById('time-display').innerText = getCurrentTime();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Task management
+        const InputBox = document.getElementById('input-box');
+        const ListContainer = document.getElementById('list-container');
+        const AddButton = document.getElementById('button1');
+
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Load tasks when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            tasks.forEach(task => renderTask(task));
+        });
+
+        // Function to add a task
+        function AddTask() {
+            const taskText = InputBox.value.trim();
+            if (taskText === "") {
+                alert("You must write something...");
+                return;
+            }
+
+            const newTask = {
+                id: Date.now(),
+                text: taskText,
+                completed: false
+            };
+            tasks.push(newTask);
+            saveTasks();
+            renderTask(newTask);
+            InputBox.value = ""; // Clear input
+        }
+
+        // Function to render a task
+        function renderTask(task) {
+            const li = document.createElement('li');
+            li.setAttribute('data-id', task.id);
+            if (task.completed) li.classList.add('checked');
+
+            li.innerHTML = `
+        <span>${task.text}</span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+    `;
+            // Toggle completed status (strike-through line)
+            li.addEventListener('click', (e) => {
+                // Ignore clicks on buttons or input fields
+                if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+                task.completed = !task.completed;
+                li.classList.toggle('checked');
+                saveTasks();
+            });
+
+            // Delete task
+            li.querySelector('.delete').addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent toggle from firing
+                tasks = tasks.filter(t => t.id !== task.id);
+                li.remove();
+                saveTasks();
+            });
+
+            // Edit task
+            li.querySelector('.edit').addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent toggle from firing
+
+                // Check if an input box already exists
+                if (li.querySelector('input')) return;
+
+                const span = li.querySelector('span');
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = task.text;
+                li.insertBefore(input, span);
+                li.removeChild(span);
+
+                const saveButton = document.createElement('button');
+                saveButton.textContent = 'Save';
+                saveButton.classList.add('save-btn');
+                li.insertBefore(saveButton, li.querySelector('.delete'));
+
+                // Save edited task
+                saveButton.addEventListener('click', () => {
+                    const newText = input.value.trim();
+                    if (newText !== "") {
+                        task.text = newText;
+                        span.textContent = newText;
+                        li.insertBefore(span, input);
+                        li.removeChild(input);
+                        li.removeChild(saveButton);
+                        saveTasks();
+                    }
+                });
+            });
+
+            ListContainer.appendChild(li);
+        }
+
+        // Save tasks to local storage
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Clear all tasks
+        function clearAll() {
+            tasks = [];
+            ListContainer.innerHTML = "";
+            saveTasks();
+        }
+    </script>
+</body>
+
+</html>

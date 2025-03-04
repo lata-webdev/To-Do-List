@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            overflow: hidden;
+            /*background: #ecf0f3;*/
+            height: 100vh;
+        }
+
+        div {
+            font-family: sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #000;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        span {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            background: #ED45f3;
+            transform: translate(-50%, -50%);
+            animation: animate 4s infinite linear;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+                filter: hue-rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -1000%);
+                opacity: 0;
+                filter: hue-rotate(1000deg);
+            }
+        }
+
+        h1 {
+            font-size: 100px;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 40px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body bgcolor="#151947">
+    <center>
+        <div>
+            <h1><b style="color:yellow; margin-top:10px;">To-Do</b> <b style="color:white;">List Using JavaScript</b>
+            </h1>
+            <p>Click here ! 🔗👇</p>
+            <a href="TodoListFinal.html"><img src="to-do-list2.png" alt="todolist"
+                    style="width:150px; height:150px;"></a>
+        </div>
+    </center>
+    <script>
+        document.addEventListener("mousemove", function (e) {
+            let body = document.querySelector("body");
+            let span = document.createElement("span");
+
+            let x = e.offsetX;
+            let y = e.offsetY;
+
+            span.style.left = x + "px";
+            span.style.top = y + "px";
+            let size = Math.random() * 100;
+            span.style.width = 30 + size + "px";
+            span.style.height = 30 + size + "px";
+            body.appendChild(span);
+
+            setTimeout(function () {
+                span.remove();
+            }, 1800);
+        }); 
+    </script>
+</body>
+
+</html>
