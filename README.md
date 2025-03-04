@@ -11,11 +11,6 @@ A simple yet powerful To-Do List web application built with *HTML, CSS, and Java
   - Mark tasks as complete (strike-through effect)  
   - Clear all tasks at once  
 
-## 🚀 Live Demo  
-🔗 *GitHub repository:* 
-🔗 *Live Demo on GitHub Pageshttps:*//lata-webdev.github.io/To-Do-List/
-🔗 *Hosted on Hostinger: mistyrose-horse-876108.hostingersite.com
-
 ## 🛠 Technologies Used  
 ✅ HTML | ✅ CSS | ✅ JavaScript  
 
@@ -28,4 +23,8 @@ A simple yet powerful To-Do List web application built with *HTML, CSS, and Java
 6️⃣ Delete individual tasks or *Clear All* to remove everything.  
 
 ## 📂 Project Setup (For Developers)  
+## 🚀 Live Demo  
+🔗 *GitHub repository:* https://github.com/lata-webdev/To-Do-List
+🔗 *Live Demo on GitHub Pageshttps:*//lata-webdev.github.io/To-Do-List/
+🔗 *Hosted on Hostinger: mistyrose-horse-876108.hostingersite.com
 🔗 LinkedIn: https://www.linkedin.com/in/lata-kumari-72b08b27b/
