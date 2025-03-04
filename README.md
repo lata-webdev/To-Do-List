@@ -12,7 +12,7 @@ A simple yet powerful To-Do List web application built with *HTML, CSS, and Java
   - Clear all tasks at once  
 
 ## 🚀 Live Demo  
-🔗 *GitHub repository:* [Your GitHub Live Link]  
+🔗 *GitHub repository:* 
 🔗 *Live Demo on GitHub Pageshttps:*//lata-webdev.github.io/To-Do-List/
 🔗 *Hosted on Hostinger: mistyrose-horse-876108.hostingersite.com
 
