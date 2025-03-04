@@ -26,6 +26,5 @@ A simple yet powerful To-Do List web application built with *HTML, CSS, and Java
 ## 🚀 Live Demo  
 🔗 LinkedIn: https://www.linkedin.com/in/lata-kumari-72b08b27b/
 🔗 GitHub repository: https://github.com/lata-webdev/To-Do-List
-🔗 Live Demo on GitHub Pageshttps:*//lata-webdev.github.io/To-Do-List/
-🔗 Hosted on Hostinger: mistyrose-horse-876108.hostingersite.com
+
 
