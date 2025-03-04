@@ -13,7 +13,8 @@ A simple yet powerful To-Do List web application built with *HTML, CSS, and Java
 
 ## 🚀 Live Demo  
 🔗 *GitHub repository:* [Your GitHub Live Link]  
-🔗 *Hosted on Hostinger:mistyrose-horse-876108.hostingersite.com
+🔗 *Live Demo on GitHub Pageshttps:*//lata-webdev.github.io/To-Do-List/
+🔗 *Hosted on Hostinger: mistyrose-horse-876108.hostingersite.com
 
 ## 🛠 Technologies Used  
 ✅ HTML | ✅ CSS | ✅ JavaScript  
